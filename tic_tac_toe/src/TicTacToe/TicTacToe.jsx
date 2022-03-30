@@ -4,6 +4,7 @@ import "./TicTacToe.css";
 const TicTacToe = () => {
   const [turn, setTurn] = useState("X");
   const [cells, setCells] = useState(Array(9).fill(""));
+  const [winner, setWinner] = useState(null);
 
   const checkForWinner = (squares) => {
     let combos = {
@@ -22,6 +23,16 @@ const TicTacToe = () => {
         [2, 4, 6],
       ],
     };
+
+    for (let combo in combos) {
+      combos[combo].forEach((pattern) => {
+        if (squares[pattern[0]] === "" || squares[pattern[1]] === "" || squares[pattern[2]] === "") {
+          //do nothing
+        } else if (squares[pattern[0]] === squares[pattern[1]] && squares[pattern[1]] === squares[pattern[2]]) {
+          setWinner(squares[pattern[0]]);
+        }
+      });
+    }
   };
 
   const handleClick = (num) => {
@@ -41,6 +52,12 @@ const TicTacToe = () => {
     }
     checkForWinner(squares);
     setCells(squares);
+    winner && alert("No more plays available, the winner has been defined.");
+  };
+
+  const handleRestart = () => {
+    setWinner(null);
+    setCells(Array(9).fill(""));
   };
 
   const Cell = ({ num }) => {
@@ -69,6 +86,12 @@ const TicTacToe = () => {
           </tr>
         </tbody>
       </table>
+      {winner && (
+        <>
+          <p>{winner} is the winner!</p>
+          <button onClick={() => handleRestart()}>Play Again</button>
+        </>
+      )}
     </div>
   );
 };
