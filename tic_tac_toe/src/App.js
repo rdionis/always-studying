@@ -2,11 +2,7 @@ import React from "react";
 import TicTacToe from "./TicTacToe/TicTacToe";
 
 const App = () => {
-  return (
-    <div className="App">
-      <TicTacToe />
-    </div>
-  );
+  return <TicTacToe />;
 };
 
 export default App;

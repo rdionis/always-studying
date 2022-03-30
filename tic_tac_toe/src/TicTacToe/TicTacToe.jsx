@@ -41,6 +41,11 @@ const TicTacToe = () => {
       return;
     }
 
+    if (winner) {
+      alert("Winner already found. No more plays available.");
+      return;
+    }
+
     let squares = [...cells];
 
     if (turn === "X") {
@@ -50,9 +55,8 @@ const TicTacToe = () => {
       squares[num] = "O";
       setTurn("X");
     }
-    checkForWinner(squares);
     setCells(squares);
-    winner && alert("No more plays available, the winner has been defined.");
+    checkForWinner(squares);
   };
 
   const handleRestart = () => {
@@ -66,8 +70,8 @@ const TicTacToe = () => {
 
   return (
     <div className="container">
+      <h2>TIC TAC TOE</h2>
       <table>
-        Turn: {turn}
         <tbody>
           <tr>
             <Cell num={0} />
