@@ -1,4 +1,6 @@
-// ****** OPERATING SYSTEM ******
+// ****** OPERATING SYSTEM MODULE ******
+
+// it gives us information about our environment/operating system
 
 const os = require("os");
 const { CLIENT_RENEG_LIMIT } = require("tls");

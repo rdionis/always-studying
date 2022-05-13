@@ -1,3 +1,5 @@
+// ****** FILE SYSTEM MODULE ******
+
 const fs = require("fs"); // fs = file system module
 const path = require("path");
 
@@ -29,7 +31,7 @@ const path = require("path");
 // });
 
 // ****** RENAME FILE ******
-fs.rename(path.join(__dirname, "/test", "hello.txt"), path.join(__dirname, "/test", "helloworld.txt"), (err) => {
-  if (err) throw err;
-  console.log("File renamed...");
-});
+// fs.rename(path.join(__dirname, "/test", "hello.txt"), path.join(__dirname, "/test", "helloworld.txt"), (err) => {
+//   if (err) throw err;
+//   console.log("File renamed...");
+// });

@@ -1,3 +1,5 @@
+// ****** URL MODULE ******
+
 const { CLIENT_RENEG_LIMIT } = require("tls");
 const url = require("url");
 
@@ -21,4 +23,12 @@ console.log(myUrl.pathname); ///hello.html
 // ****** SERIALIZED QUERY ******
 console.log(myUrl.search); // returns everything after the question mark in the URL
 
-//(...) PASSEI UMA PARTE 45:00-56:00
+// ****** PARAMS OBJECT ******
+console.log(myUrl.searchParams);
+
+// ****** ADD PARAMS ******
+myUrl.searchParams.append("abc", "123");
+console.log(myUrl.searchParams);
+
+// ****** LOOP THROUGH PARAMS ******
+myUrl.searchParams.forEach((value, name) => console.log(`${name}: ${value}`));
